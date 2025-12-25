@@ -1,4 +1,6 @@
 import gdown
+import os
+
 
 MODEL_PATH = "vgg16_brain_tumor.h5"
 MODEL_URL = "https://drive.google.com/drive/folders/1tEuPqkmm3148017uJEF-L6hERuQaCp6n?usp=sharing"
@@ -11,7 +13,6 @@ if not os.path.exists(MODEL_PATH):
 import streamlit as st
 from PIL import Image, ImageOps
 import numpy as np
-import os
 from tensorflow.keras.models import load_model
 from tensorflow.keras.utils import img_to_array
 from tensorflow.keras.applications.vgg16 import preprocess_input
