@@ -1,23 +1,20 @@
-import gdown
 import os
-
-
-MODEL_PATH = "vgg16_brain_tumor.h5"
-MODEL_URL = "https://drive.google.com/drive/folders/1tEuPqkmm3148017uJEF-L6hERuQaCp6n?usp=sharing"
-
-if not os.path.exists(MODEL_PATH):
-    gdown.download(MODEL_URL, MODEL_PATH, quiet=False)
-
-
-# app.py
+import gdown
 import streamlit as st
-from PIL import Image, ImageOps
 import numpy as np
+from PIL import Image
 from tensorflow.keras.models import load_model
 from tensorflow.keras.utils import img_to_array
 from tensorflow.keras.applications.vgg16 import preprocess_input
-import base64
-from io import BytesIO
+
+MODEL_PATH = "vgg16_brain_tumor.h5"
+MODEL_URL = "https://drive.google.com/uc?id=1iaZnfOKbgyJYkb3kKZbdzsNTlMkPLDAv"
+
+if not os.path.exists(MODEL_PATH):
+    with st.spinner("Downloading model..."):
+        gdown.download(MODEL_URL, MODEL_PATH, quiet=False)
+
+model = load_model(MODEL_PATH)
 
 
 # ---------------------------
