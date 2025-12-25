@@ -1,0 +1,15 @@
+# Model files (besar)
+*.h5
+*.keras
+
+# Dataset
+processed_dataset/
+dataset/
+
+# Environment
+.env
+__pycache__/
+*.pyc
+
+# VS Code
+.vscode/
